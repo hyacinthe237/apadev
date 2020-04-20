@@ -13,9 +13,9 @@ require('laravel-mix-merge-manifest');
  */
 
 mix.js('resources/assets/js/app.js', 'public/assets/js')
-// .extract(['jquery', 'vue', 'lodash', 'moment', 'sweetalert2',
-//     'vuex', 'axios', 'moment-range', 'vee-validate', 'vue2-dropzone'
-// ])
+.extract(['jquery', 'vue', 'lodash', 'moment', 'sweetalert2',
+    'vuex', 'axios', 'moment-range', 'vee-validate', 'vue2-dropzone'
+])
 mix.sass('resources/assets/sass/app.scss', 'public/assets/css')
 .mergeManifest();
 

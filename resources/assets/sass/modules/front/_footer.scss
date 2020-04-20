@@ -1,4 +1,6 @@
 .site-footer {
+    position: fixed;
+    bottom: 0;
     background-color: $footerBackground;
     width: 100%;
     min-height: 300px;
