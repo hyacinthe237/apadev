@@ -10,6 +10,7 @@
 .wrap:hover {
     background: linear-gradient(135deg,#6394ff 0%,#0a193b 100%);
     color: white;
+    cursor: pointer;
 }
 
 .ico-wrap {
@@ -48,4 +49,5 @@ h2 {
 }
 .display-6 {
     font-family: 'Source Sans Pro',sans-serif;
-    font-size: 1re}
+    font-size: 1rem
+  }

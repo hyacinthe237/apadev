@@ -13,7 +13,7 @@
             {{ Request::is('admin/bookings*') ? 'active' : '' }}
             {{ Request::is('admin/pickups*') ? 'active' : '' }}"
         >
-            <a href="#">
+            <a href="{{ route('associations.index')}}">
                 <i class="ion-android-cart"></i>
                 Association
             </a>
