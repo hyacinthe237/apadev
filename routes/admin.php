@@ -22,4 +22,5 @@ Route::group(['prefix' => 'admin', 'middleware' => ['admin_auth', 'admin']], fun
     Route::resource('roles', 'Views\Backend\RoleController');
     Route::resource('permissions', 'Views\Backend\PermissionController');
     Route::resource('associations', 'Views\Backend\AssociationController');
+    Route::resource('references', 'Views\Backend\ReferenceController');
 });

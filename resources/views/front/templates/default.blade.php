@@ -37,7 +37,7 @@
               @include('front.includes.nav')
           </nav>
 
-          <div class="container-fluid">
+          <div class="container">
               @yield('body')
           </div>
 

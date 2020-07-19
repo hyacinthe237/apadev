@@ -19,6 +19,15 @@
             </a>
         </li>
 
+        <li class="
+            {{ Request::is('admin/references*') ? 'active' : '' }}"
+        >
+            <a href="{{ route('references.index')}}">
+                <i class="ion-android-cart"></i>
+                Reférences
+            </a>
+        </li>
+
         <li class="dropdown {{ Request::is('admin/vehicles*') ? 'active open' : '' }}">
             <a href="" data-toggle="dropdown">
                 <i class="ion-android-car"></i>

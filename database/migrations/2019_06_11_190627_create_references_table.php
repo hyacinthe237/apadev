@@ -16,9 +16,8 @@ class CreateReferencesTable extends Migration
         Schema::create('references', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->integer('association_id')->nullable();
-            $table->string('title');
-            $table->string('slug')->unique();
-            $table->string('location')->nullable();
+            $table->text('title');
+            $table->text('location')->nullable();
             $table->bigInteger('year')->nullable();
             $table->text('description')->nullable();
             $table->text('commanditaires')->nullable();

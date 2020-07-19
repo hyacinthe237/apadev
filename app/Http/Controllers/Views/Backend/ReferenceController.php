@@ -5,29 +5,37 @@ namespace App\Http\Controllers\Views\Backend;
 use Auth;
 use App\Models\Association;
 use App\Models\Reference;
-use App\Traits\SlugTrait;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class ReferenceController extends Controller
 {
-  use SlugTrait;
-
-    public function index ()
+    public function index (Request $request)
     {
-        $references  = Reference::get();
-        return view('backend.references.index', compact('references'));
+        $keywords = $request->keywords;
+        $references  = Reference::when($keywords, function($query) use ($keywords) {
+            return $query->where('title', 'like', '%'.$keywords.'%')
+            ->orWhere('year', 'like', '%'.$keywords.'%')
+            ->orWhere('description', 'like', '%'.$keywords.'%')
+            ->orWhere('location', 'like', '%'.$keywords.'%')
+            ->orWhere('commanditaires', 'like', '%'.$keywords.'%');
+        })
+        ->orderBy('id', 'desc')
+        ->paginate(20);
+
+        return view('admin.references.index', compact('references'));
     }
 
     public function create ()
     {
-        return view('backend.references.create');
+        return view('admin.references.create');
     }
 
     public function edit ($id)
     {
         $reference  = Reference::find($id);
-        return view('backend.references.edit', compact('reference'));
+        return view('admin.references.edit', compact('reference'));
     }
 
     /**
@@ -46,12 +54,10 @@ class ReferenceController extends Controller
             return redirect()->back()->withErrors(['validator' => 'Le champ titre est obligatoire']);
 
         $association = Association::whereIsActive(true)->first();
-        $slug = $this->getUniqueSlug(strtolower($request->title), 'references');
 
         Reference::create([
           'association_id'  => $association->id,
           'title'           => $request->title,
-          'slug'            => $slug,
           'location'        => $request->location,
           'year'            => $request->year,
           'description'     => $request->description,
@@ -77,16 +83,14 @@ class ReferenceController extends Controller
         if ($validator->fails())
             return redirect()->back()->withErrors(['validator' => 'Le champ titre est obligatoire']);
 
-        $slug = $this->getUniqueSlug(strtolower($request->title), 'references');
         $reference = Reference::find($id);
 
-        $reference->association_id  => $request->has('association_id') ? $request->association_id : $reference->association_id;
-        $reference->title           => $request->has('title') ? $request->title : $reference->title;
-        $reference->slug            => $request->has('title') ? $slug : $reference->slug;
-        $reference->location        => $request->has('location') ? $request->location : $reference->location;
-        $reference->year            => $request->has('year') ? $request->year : $reference->year;
-        $reference->description     => $request->has('description') ? $request->description : $reference->description;
-        $reference->commanditaires  => $request->has('commanditaires') ? $request->commanditaires : $reference->commanditaires;
+        // $reference->association_id  = $request->has('association_id') ? $request->association_id : $reference->association_id;
+        $reference->title           = $request->has('title') ? $request->title : $reference->title;
+        $reference->location        = $request->has('location') ? $request->location : $reference->location;
+        $reference->year            = $request->has('year') ? $request->year : $reference->year;
+        $reference->description     = $request->has('description') ? $request->description : $reference->description;
+        $reference->commanditaires  = $request->has('commanditaires') ? $request->commanditaires : $reference->commanditaires;
         $reference->update();
 
         return redirect()->back()->with('message', 'Référence mise à jour avec succès');
@@ -97,7 +101,7 @@ class ReferenceController extends Controller
         $reference = Reference::find($id);
 
         if (!$reference)
-            return return redirect()->back()->withErrors(['message' => 'Référence non existante']);
+            return redirect()->back()->withErrors(['message' => 'Référence non existante']);
 
         $reference->delete();
         return redirect()->back()->with('message', 'Référence supprimée');

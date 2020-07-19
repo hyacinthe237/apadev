@@ -42,7 +42,6 @@
 						<li class="list-inline-item"><a href="/" target="_blank"><i class="ion-android-mail"></i></a></li>
 					</ul>
 				</div>
-				<hr>
 			</div>
 			<div class="row">
 				<div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
