@@ -1,0 +1,33 @@
+.references {
+    width: 100%;
+    margin-bottom: 50px;
+
+    .reference {
+        height: 200px;
+        max-height: 200px;
+        background-color: white;
+        border-radius: 4px;
+        padding: 10px;
+        margin-bottom: 5px;
+        box-shadow: 0 10px 48px rgba(30, 107, 174, 0.1), 0 1px 1px rgba(255, 248, 254, 0.61);
+
+        ._title {
+
+        }
+
+        ._footer {
+            background-color: $brand-primary;
+            color: white;
+            display: flex;
+
+            ul {
+
+              li {
+                i {
+                  padding-right: 5px;
+                }
+              }
+            }
+        }
+    }
+}

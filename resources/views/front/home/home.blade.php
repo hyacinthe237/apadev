@@ -47,22 +47,26 @@
       </div>
 
       <div class="row">
-          @if (sizeOf($references))
-              @foreach ($references as $item)
-                  <div class="col-sm-6">
-                      <div class="wrap">
-                          <div class="ico-wrap">
-                              <span class="mbr-iconfont ion-android-globe"></span>
-                          </div>
-                          <div class="text-wrap vcenter">
-                              <h4 class="bold">{{ $item->title }}</h4>
-                              <p></p>
+          <div class="references">
+              @if (sizeOf($references))
+                  @foreach ($references as $item)
+                      <div class="col-sm-6">
+                          <div class="reference text-center">
+                              <div class="_title bold">
+                                  {{ $item->title }}
+                              </div>
+                              <ul class="list-inline">
+                                  <li class="list-inline-item">{{ $item->location }}</li>
+                                  <li class="list-inline-item">{{ $item->year }}</li>
+                                  <li class="list-inline-item">{{ $item->commanditaires }}</li>
+                              </ul>
                           </div>
                       </div>
-                  </div>
-              @endforeach
-          @endif
+                  @endforeach
+              @endif
+          </div>
       </div>
+      <div class="mt-60"></div>
 
   </div>
 @endsection()
