@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'Views\Frontend\HomeController@home')->name('home');
+Route::get('/references', 'Views\Frontend\ReferenceController@index')->name('references');

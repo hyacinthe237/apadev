@@ -12,7 +12,7 @@
             <li class=""><a href="/">Accueil</a></li>
             <li class=""><a href="/">Qui sommes-nous ?</a></li>
             <li class=""><a href="/">Services</a></li>
-            <li class=""><a href="/">Références</a></li>
+            <li class=""><a href="{{ route('references') }}">Références</a></li>
             <li class=""><a href="/">Actualités</a></li>
             <li class=""><a href="/">Soutenez-nous</a></li>
             <li class=""><a href="/">Contact</a></li>

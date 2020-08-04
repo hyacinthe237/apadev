@@ -53,13 +53,13 @@
                     </thead>
 
                     <tbody>
-                        @foreach($references as $refrence)
-                            <tr data-href="/admin/references/{{ $refrence->id }}/edit">
-                                <td>{{ $refrence->id }}</td>
-                                <td class="bold">{{ $refrence->title }}</td>
-                                <td>{{ $refrence->year ? $refrence->year : $refrence->description }}</td>
-                                <td>{{ $refrence->commanditaires }}</td>
-                                <td>{{ date('d/m/Y H:i', strtotime($refrence->created_at)) }}</td>
+                        @foreach($references as $reference)
+                            <tr data-href="/admin/references/{{ $reference->id }}/edit">
+                                <td>{{ $reference->id }}</td>
+                                <td class="bold">{{ $reference->title }}</td>
+                                <td>{{ $reference->year ? $reference->year : $reference->description }}</td>
+                                <td>{{ $reference->commanditaires }}</td>
+                                <td>{{ date('d/m/Y H:i', strtotime($reference->created_at)) }}</td>
                             </tr>
                         @endforeach
                     </tbody>

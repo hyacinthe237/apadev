@@ -45,30 +45,40 @@
               </div>
           </div>
       </div>
+  </div>
 
-      <div class="row">
-          <div class="references">
-              @if (sizeOf($references))
-                  @foreach ($references as $item)
-                      <div class="col-sm-6">
-                          <div class="reference text-center">
-                              <div class="_title bold">
-                                  {{ $item->title }}
+  <section class="">
+    <div class="row">
+      <div class="col-sm-12 text-center">
+        <h2 class="mb-40">Nos références</h2>
+      </div>
+      <div class="references">
+            @if (sizeOf($references))
+              @foreach ($references as $reference)
+                <div class="col-sm-4">
+                  <div class="panel references">
+                      <div class="panel-heading">
+                          <div class="reference">
+                              <div class="row">
+                                  <div class="col-sm-12">
+                                      <div class="ribbon"><span>{{ $reference->year ? $reference->year : $reference->description }}</span></div>
+                                  </div>
+                                  <div class="col-sm-12">
+                                      <h5 class="pull-left">{{ $reference->title }}</h5>
+                                  </div>
+                                  <div class="col-sm-12">
+                                      {{ $reference->commanditaires }}
+                                  </div>
                               </div>
-                              <ul class="list-inline">
-                                  <li class="list-inline-item">{{ $item->location }}</li>
-                                  <li class="list-inline-item">{{ $item->year }}</li>
-                                  <li class="list-inline-item">{{ $item->commanditaires }}</li>
-                              </ul>
                           </div>
                       </div>
-                  @endforeach
-              @endif
-          </div>
-      </div>
-      <div class="mt-60"></div>
-
-  </div>
+                  </div>
+                </div>
+              @endforeach
+            @endif
+        </div>
+    </div>
+  </section>
 @endsection()
 
 @section('js')

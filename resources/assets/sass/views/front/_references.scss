@@ -3,13 +3,13 @@
     margin-bottom: 50px;
 
     .reference {
-        height: 200px;
-        max-height: 200px;
+        height: 150px;
+        max-height: 150px;
         background-color: white;
         border-radius: 4px;
         padding: 10px;
         margin-bottom: 5px;
-        box-shadow: 0 10px 48px rgba(30, 107, 174, 0.1), 0 1px 1px rgba(255, 248, 254, 0.61);
+        // box-shadow: 0 10px 48px rgba(30, 107, 174, 0.1), 0 1px 1px rgba(255, 248, 254, 0.61);
 
         ._title {
 
@@ -27,6 +27,36 @@
                   padding-right: 5px;
                 }
               }
+            }
+        }
+
+        .ribbon {
+            position: absolute;
+            right: -5px;
+            top: -55px;
+            z-index: 1;
+            overflow: hidden;
+            width: 100%;
+            height: 75px;
+            text-align: center;
+
+            span {
+                padding-top: 10px;
+                padding-bottom: 10px;
+                font-size: 12px;
+                color: #fff;
+                text-transform: uppercase;
+                text-align: center;
+                font-weight: bold;
+                line-height: 20px;
+                width: 100%;
+                display: block;
+                background: $primary-5;
+                // background: linear-gradient(#ff89b1 0%, #ff006e 100%);
+                position: absolute;
+                top: 19px;
+                right: -21px;
+                border-radius: 15px;
             }
         }
     }

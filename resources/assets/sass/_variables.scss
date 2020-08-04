@@ -37,6 +37,16 @@ $font-size-base: 14px;
 $line-height-base: 1.6;
 $text-color: #636b6f;
 
+$primary: $brand-success;
+$primary-1: #197132;
+$primary-2: #1e863b;
+$primary-3: #229b44;
+$primary-4: #229b44;
+$primary-4: #27b04d;
+$primary-5: #2cc556;
+$primary-6: #37d362;
+$primary-7: #4cd773;
+
 // Navbar
 $navbar-default-bg: #fff;
 
@@ -56,12 +66,12 @@ $linkColour: $brand-primary;
 $linkHoverBackgroundColour: $brand-dark-light;
 $primaryColour: $brand-presumi;
 $secondaryColour: $brand-success;
-$navColour: $brand-dark;
+$navColour: white;
 $fontColour: $brand-dark;
 $primaryFontColour: $brand-dark;
 $secondaryFontColour: white;
-$navBackgroundColour: $brand-yellow;
-$navActiveBackgroundColour: $brand-yellow-dark;
+$navBackgroundColour: $primary-1;
+$navActiveBackgroundColour: $primary-7;
 $navHoverColour: #f9f9f9;
 $footerBackground: $brand-darker;
 $navTransparentLinkColour: white;

@@ -26,12 +26,12 @@
           color: $navColour;
 
           &:hover {
-            color: $brand-presumi;
+            color: $primary-7;
           }
         }
 
         &:hover {
-          color: $brand-presumi;
+          color: $primary-7;
         }
     }
 
@@ -52,7 +52,7 @@
                 &:hover,
                 &:focus {
                     color: white;
-                    background-color: $brand-presumi;
+                    background-color: $primary-4;
                 }
 
                 &.btn {
